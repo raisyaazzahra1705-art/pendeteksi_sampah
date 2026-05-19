@@ -163,5 +163,12 @@ function drawBoxes(boxes) {
         ctxOverlay.font = "bold 16px Arial";
         ctxOverlay.fillText(`${CONFIG.labels[box.classId]} ${(box.score * 100).toFixed(0)}%`, box.x * scaleX, box.y * scaleY - 5);
     });
-    
 }
+//tambahan status deteksi
+function updateStatus(boxes){
+
+    if(boxes.length > 0){
+        status.innerText = 'terdeteksi ${boxes.length OBJEK';
+    } else {
+        status.innerText = "menunggu objekk...";
+    }
