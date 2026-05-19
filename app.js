@@ -2,7 +2,7 @@
 // 1. PENGATURAN PROYEK (KALIAN HANYA PERLU MENGUBAH BAGIAN INI)
 // ======================================================================
 const CONFIG = {
-    labels: ["organik", "anorganik"]
+    // Nama file model AI yang sudah kalian download dari Colab
     modelPath: './best.onnx', 
     
     // GANTI INI dengan nama kelas kalian. 
@@ -121,7 +121,6 @@ async function processFrame() {
     // E. Membersihkan kotak-kotak yang menumpuk pada objek yang sama[cite: 1]
     const finalBoxes = nonMaxSuppression(rawBoxes, CONFIG.iouThreshold);
     drawBoxes(finalBoxes);
-    updateStatus(finalBoxes);
     requestAnimationFrame(processFrame);
 }
 
@@ -164,11 +163,3 @@ function drawBoxes(boxes) {
         ctxOverlay.fillText(`${CONFIG.labels[box.classId]} ${(box.score * 100).toFixed(0)}%`, box.x * scaleX, box.y * scaleY - 5);
     });
 }
-//tambahan status deteksi
-function updateStatus(boxes){
-
-    if(boxes.length > 0){
-        status.innerText = 'terdeteksi ${boxes.length OBJEK';
-    } else {
-        status.innerText = "menunggu objekk...";
-    }
