@@ -25,12 +25,16 @@ const CONFIG = {
 const video = document.getElementById('webcam');
 const overlay = document.getElementById('overlay');
 const ctxOverlay = overlay.getContext('2d');
+
 const processor = document.getElementById('processor');
-const ctxProcessor = processor.getContext('2d', { willReadFrequently: true });
+const ctxProcessor = processor.getContext('2d');
+
 const status = document.getElementById('status');
+
 const initBtn = document.getElementById('btn-init');
 
 let session;
+
 const TARGET_SIZE = 640; // Ukuran gambar standar yang diminta oleh YOLO11n
 
 // Langkah 1: Memuat Model AI saat tombol ditekan[cite: 1]
@@ -40,9 +44,9 @@ initBtn.addEventListener('click', async () => {
     try {
         ort.env.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/';
         session = await ort.InferenceSession.create(CONFIG.modelPath, { 
-            executionProviders: ['webgl', 'wasm'] // Meminta browser menggunakan GPU/VGA jika tersedia
+            executionProviders: ['wasm'] // Meminta browser menggunakan GPU/VGA jika tersedia
         });
-        startCamera();
+         await startCamera();
     } catch (e) {
         status.innerText = "GAGAL: FILE MODEL TIDAK DITEMUKAN";
         console.error(e);
