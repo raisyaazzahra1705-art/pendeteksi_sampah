@@ -2,12 +2,12 @@
 // 1. PENGATURAN PROYEK (KALIAN HANYA PERLU MENGUBAH BAGIAN INI)
 // ======================================================================
 const CONFIG = {
-    // Nama file model AI yang sudah kalian download dari Colab
+    labels: ["organik", "anorganik"]
     modelPath: './best.onnx', 
     
     // GANTI INI dengan nama kelas kalian. 
     // PERHATIAN: Urutannya HARUS SAMA PERSIS dengan urutan di Roboflow!
-    labels: ["Kelas_Satu", "Kelas_Dua"], 
+    labels: ["organik", "anorganik"], 
     
     // Batas keyakinan AI (0.45 = 45%). 
     // Jika AI terlalu sering salah tebak, naikkan angkanya (misal 0.60).
