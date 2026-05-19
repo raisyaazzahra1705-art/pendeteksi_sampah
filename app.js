@@ -121,6 +121,7 @@ async function processFrame() {
     // E. Membersihkan kotak-kotak yang menumpuk pada objek yang sama[cite: 1]
     const finalBoxes = nonMaxSuppression(rawBoxes, CONFIG.iouThreshold);
     drawBoxes(finalBoxes);
+    updateStatus(finalBoxes);
     requestAnimationFrame(processFrame);
 }
 
@@ -162,4 +163,5 @@ function drawBoxes(boxes) {
         ctxOverlay.font = "bold 16px Arial";
         ctxOverlay.fillText(`${CONFIG.labels[box.classId]} ${(box.score * 100).toFixed(0)}%`, box.x * scaleX, box.y * scaleY - 5);
     });
+    
 }
