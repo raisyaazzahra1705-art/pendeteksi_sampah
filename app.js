@@ -54,21 +54,25 @@ initBtn.addEventListener('click', async () => {
 });
 
 // Langkah 2: Menyalakan Kamera Web[cite: 1]
-async function startCamera() {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 }, audio: false });
-    video.srcObject = stream;
-    video.onloadedmetadata = async () => {
+asyn function startCamera() {
+    try {
+        const stream =
+            await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: false
+            });
+        video.srcObject = stream;
         await video.play();
+        status.innerText=
+        "KAMERA AKTIF";
 
-        status.innerText = "KAMERA AKTIF"
-        intBtn.style.display = "none";
-        requestAnimationFrame(processFrame);
-        
-        status.innerText = "SISTEM AKTIF: MENUNGGU OBJEK";
         initBtn.style.display = "none";
         requestAnimationFrame(processFrame);
-    };
-}
+    } catch (error) {
+        console.log(error);
+        status.innerText =
+        "KAMERA GAGAL DIAKSES";
+    }
 
 // Langkah 3: Proses Deteksi Berulang (Looping)[cite: 1]
 async function processFrame() {
