@@ -57,8 +57,13 @@ initBtn.addEventListener('click', async () => {
 async function startCamera() {
     const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 }, audio: false });
     video.srcObject = stream;
-    video.onloadedmetadata = () => {
-        video.play();
+    video.onloadedmetadata = async () => {
+        await video.play();
+
+        status.innerText = "KAMERA AKTIF"
+        intBtn.style.display = "none";
+        requestAnimationFrame(processFrame);
+        
         status.innerText = "SISTEM AKTIF: MENUNGGU OBJEK";
         initBtn.style.display = "none";
         requestAnimationFrame(processFrame);
