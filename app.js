@@ -1,10 +1,7 @@
-const tombol=document.getElementById("btnKamera");
-const video=document.getElementById("video");
-const status=document.getElementById("status");
-
-tombol.addEventListener("click", aktifkanKamera);
-
 async function aktifkanKamera(){
+
+let video=document.getElementById("video");
+let status=document.getElementById("status");
 
 try{
 
@@ -14,14 +11,16 @@ video:true
 
 video.srcObject=stream;
 
-status.innerHTML="STATUS : KAMERA AKTIF";
+status.innerHTML=
+"STATUS : KAMERA AKTIF";
 
 }
-catch(error){
+catch(err){
 
-status.innerHTML="STATUS : GAGAL AKSES KAMERA";
+status.innerHTML=
+"STATUS : GAGAL AKSES KAMERA";
 
-console.log(error);
+console.log(err);
 
 }
 
