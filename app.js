@@ -1,27 +1,30 @@
-async function aktifkanKamera(){
+const tombol = document.getElementById("btnKamera");
 
-let video=document.getElementById("video");
-let status=document.getElementById("status");
+tombol.addEventListener("click", async () => {
 
-try{
+const video = document.getElementById("video");
+const status = document.getElementById("status");
 
-const stream=await navigator.mediaDevices.getUserMedia({
-video:true
+try {
+
+const stream = await navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: false
 });
 
-video.srcObject=stream;
+video.srcObject = stream;
 
-status.innerHTML=
-"STATUS : KAMERA AKTIF";
+await video.play();
 
-}
-catch(err){
-
-status.innerHTML=
-"STATUS : GAGAL AKSES KAMERA";
-
-console.log(err);
+status.textContent = "STATUS : KAMERA AKTIF";
 
 }
+catch(error){
+
+status.textContent = "STATUS : GAGAL AKSES KAMERA";
+
+console.log(error);
 
 }
+
+});
