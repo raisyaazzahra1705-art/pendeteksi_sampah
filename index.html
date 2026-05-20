@@ -2,40 +2,42 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Pendeteksi Sampah</title>
 
 <style>
 body{
-background:#04102d;
-color:white;
-text-align:center;
-font-family:Arial;
+    background:#04102d;
+    color:white;
+    text-align:center;
+    font-family:Arial,sans-serif;
 }
 
 button{
-padding:15px 30px;
-font-size:20px;
-cursor:pointer;
-background:#22b8ff;
-border:none;
-border-radius:10px;
-color:white;
+    padding:15px 30px;
+    font-size:20px;
+    cursor:pointer;
+    background:#22b8ff;
+    border:none;
+    border-radius:10px;
+    color:white;
 }
 
 #video{
-width:700px;
-height:400px;
-border:3px solid #22b8ff;
-margin-top:20px;
+    width:700px;
+    height:400px;
+    border:3px solid #22b8ff;
+    margin-top:20px;
+    background:black;
 }
 </style>
-
 </head>
+
 <body>
 
 <h1>♻ AI Pendeteksi Sampah</h1>
 
-<button onclick="aktifkanKamera()">
+<button id="btnKamera">
 AKTIFKAN KAMERA
 </button>
 
@@ -43,9 +45,9 @@ AKTIFKAN KAMERA
 STATUS : BELUM AKTIF
 </p>
 
-<video id="video" autoplay playsinline></video>
+<video id="video" autoplay muted playsinline></video>
 
-<script src="./app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
