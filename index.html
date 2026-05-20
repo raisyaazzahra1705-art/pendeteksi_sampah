@@ -1,132 +1,79 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Pendeteksi Sampah</title>
 
-    <meta charset="UTF-8">
+<style>
+body{
+    background:#04102d;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+h1{
+    color:#31b9ff;
+    margin-top:50px;
+    font-size:55px;
+}
 
-    <title>AI Kamera</title>
+button{
+    background:#22b8ff;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:12px;
+    font-size:20px;
+    cursor:pointer;
+    margin:20px;
+}
 
-    <style>
+button:hover{
+    opacity:0.8;
+}
 
-        body{
+#status{
+    font-size:30px;
+    font-weight:bold;
+}
 
-            background:#0f172a;
-            color:white;
-            font-family:Arial;
-            text-align:center;
-            padding:20px;
-        }
+.kamera-box{
+    width:800px;
+    height:450px;
+    border:4px solid #22b8ff;
+    margin:auto;
+    border-radius:20px;
+    overflow:hidden;
+}
 
-        h1{
-
-            color:#38bdf8;
-        }
-
-        .container{
-
-            position:relative;
-
-            width:640px;
-
-            height:480px;
-
-            margin:auto;
-
-            border:3px solid #38bdf8;
-
-            border-radius:15px;
-
-            overflow:hidden;
-        }
-
-        video,
-        canvas{
-
-            position:absolute;
-
-            top:0;
-
-            left:0;
-
-            width:100%;
-
-            height:100%;
-        }
-
-        #overlay{
-
-            z-index:10;
-        }
-
-        button{
-
-            margin:20px;
-
-            padding:12px 25px;
-
-            border:none;
-
-            border-radius:10px;
-
-            background:#0ea5e9;
-
-            color:white;
-
-            font-weight:bold;
-
-            cursor:pointer;
-        }
-
-        #status{
-
-            margin-bottom:15px;
-
-            font-weight:bold;
-        }
-
-    </style>
+video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+</style>
 
 </head>
-
 <body>
 
-    <h1>♻️ AI Pendeteksi Sampah</h1>
+<h1>♻ AI Pendeteksi Sampah</h1>
+<h2>By Ica Nuralija</h2>
 
-    <p>By Ica Nuralija</p>
+<button id="btnKamera">
+AKTIFKAN KAMERA
+</button>
 
-    <button id="btn-init">
+<p id="status">
+STATUS : BELUM AKTIF
+</p>
 
-        AKTIFKAN KAMERA
+<div class="kamera-box">
+    <video id="video" autoplay playsinline></video>
+</div>
 
-    </button>
-
-    <div id="status">
-
-        STATUS : BELUM AKTIF
-
-    </div>
-
-    <div class="container">
-
-        <video id="webcam"
-               autoplay
-               playsinline
-               muted>
-        </video>
-
-        <canvas id="overlay"
-                width="640"
-                height="480">
-        </canvas>
-
-    </div>
-
-    <script src="app.js"></script>
+<script src="app.js"></script>
 
 </body>
-
 </html>
