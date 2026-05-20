@@ -2,56 +2,31 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Pendeteksi Sampah</title>
 
 <style>
 body{
-    background:#04102d;
-    color:white;
-    font-family:Arial,sans-serif;
-    text-align:center;
-}
-
-h1{
-    color:#31b9ff;
-    margin-top:50px;
-    font-size:55px;
+background:#04102d;
+color:white;
+text-align:center;
+font-family:Arial;
 }
 
 button{
-    background:#22b8ff;
-    color:white;
-    border:none;
-    padding:15px 35px;
-    border-radius:12px;
-    font-size:20px;
-    cursor:pointer;
-    margin:20px;
+padding:15px 30px;
+font-size:20px;
+cursor:pointer;
+background:#22b8ff;
+border:none;
+border-radius:10px;
+color:white;
 }
 
-button:hover{
-    opacity:0.8;
-}
-
-#status{
-    font-size:30px;
-    font-weight:bold;
-}
-
-.kamera-box{
-    width:800px;
-    height:450px;
-    border:4px solid #22b8ff;
-    margin:auto;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+#video{
+width:700px;
+height:400px;
+border:3px solid #22b8ff;
+margin-top:20px;
 }
 </style>
 
@@ -59,9 +34,8 @@ video{
 <body>
 
 <h1>♻ AI Pendeteksi Sampah</h1>
-<h2>By Ica Nuralija</h2>
 
-<button id="btnKamera">
+<button onclick="aktifkanKamera()">
 AKTIFKAN KAMERA
 </button>
 
@@ -69,11 +43,9 @@ AKTIFKAN KAMERA
 STATUS : BELUM AKTIF
 </p>
 
-<div class="kamera-box">
-    <video id="video" autoplay playsinline></video>
-</div>
+<video id="video" autoplay playsinline></video>
 
-<script src="app.js"></script>
+<script src="./app.js"></script>
 
 </body>
 </html>
