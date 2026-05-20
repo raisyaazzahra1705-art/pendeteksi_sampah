@@ -1,5 +1,3 @@
-alert("app.js berhasil terbaca");
-
 const tombol = document.getElementById("btnKamera");
 
 tombol.addEventListener("click", async () => {
@@ -9,21 +7,25 @@ const status = document.getElementById("status");
 
 try {
 
+status.textContent="Meminta izin kamera...";
+
 const stream = await navigator.mediaDevices.getUserMedia({
-    video: true,
-    audio: false
+    video:true,
+    audio:false
 });
 
 video.srcObject = stream;
 
-await video.play();
+video.onloadedmetadata = () => {
+    video.play();
+};
 
-status.textContent = "STATUS : KAMERA AKTIF";
+status.textContent="STATUS : KAMERA AKTIF";
 
 }
 catch(error){
 
-status.textContent = "STATUS : GAGAL AKSES KAMERA";
+status.textContent="ERROR : " + error.name;
 
 console.log(error);
 
