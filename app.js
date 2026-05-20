@@ -1,3 +1,5 @@
+alert("app.js berhasil terbaca");
+
 const tombol = document.getElementById("btnKamera");
 
 tombol.addEventListener("click", async () => {
